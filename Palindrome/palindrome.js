@@ -12,7 +12,7 @@ function toChars(str) {
 }
 
 // Using the for loops to solve palindome
-function isPalindrome(str) {
+function isPalindromeLoop(str) {
   const len = str.length;
   for (let i = 0; i < len / 2; i++) {
     if (str[i] !== str[len - 1 - i]) {
@@ -25,26 +25,31 @@ function isPalindrome(str) {
   return;
 }
 
-// isPal("Civic");
-// isPal("Madam");
-// isPal("Dennis sinned");
-// isPal("Able was I ere I saw Elba");
+function isPalLoop(str) {
+  // return True if s is palindrome and False otherwise
+  return isPalindromeLoop(toChars(str));
+}
+
+isPalLoop("Civic");
+isPalLoop("Madam");
+isPalLoop("Dennis sinned");
+isPalLoop("Able was I ere I saw Elba");
 
 // Using recursion
-function isPalindrome(str) {
+function isPalindromeRecursion(str) {
   if (str.length <= 1) {
     return true;
   } else {
-    return str[0] === str.slice(-1) && isPalindrome(str.slice(1, -1));
+    return str[0] === str.slice(-1) && isPalindromeRecursion(str.slice(1, -1));
   }
 }
 
-function isPal(str) {
+function isPalRecursion(str) {
   // return True if s is palindrome and False otherwise
-  return isPalindrome(toChars(str));
+  return isPalindromeRecursion(toChars(str));
 }
 
-// console.log(isPal("Civic"));
-// console.log(isPal("Madam"));
-// console.log(isPal("Dennis sinned"));
-// console.log(isPal("Able was I ere I saw Elba"));
+console.log(isPalRecursion("Civic"));
+console.log(isPalRecursion("Madam"));
+console.log(isPalRecursion("Dennis sinned"));
+console.log(isPalRecursion("Able was I ere I saw Elba"));
